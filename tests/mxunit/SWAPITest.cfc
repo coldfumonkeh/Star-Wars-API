@@ -31,4 +31,13 @@ component extends="mxunit.framework.TestCase" {
     assertTrue(isArray(response.characters));
   }
 
+
+  public any function getSpecificVehicleReturnsCorrectly() {
+    var response = variables.swapi.getVehicle(id=16, json=false);
+    assertTrue(isStruct(response));
+    assertEquals(response.name, "TIE bomber");
+    assertEquals(response.crew, "1");
+    assertTrue(isArray(response.films));
+  }
+
 }
