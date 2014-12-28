@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/coldfumonkeh/Star-Wars-API.svg?branch=master)](https://travis-ci.org/coldfumonkeh/Star-Wars-API)
+
 # Star Wars API ColdFusion Wrapper
 
 ---
