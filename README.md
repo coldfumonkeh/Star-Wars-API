@@ -35,24 +35,84 @@ You will need to instantiate the component to gain access to the methods:
 
 The following methods will then be available for you to use:
 
-* **getResources()** - returns a list of available endpoints / resources within the API.
-* **getPeople([page])** - returns paginated results of all available characters.
-* **getPerson(id)** - returns a specific character
-* **getFilm(id)** - Returns one film.
-* **getFilms([page])** - Returns all films, paged. Defaults to page 1.
-* **getPlanet(id)** - Returns a planet.
-* **getPlanets([page])** - Returns all plaents, paged. Defaults to page 1.
-* **getSpecies(id)** - Returns one species.
-* **getAllSpecies([page])** - Returns all species, paged. Defaults to page 1.
-* **getStarship(id)** - Returns a starship.
-* **getStarships([page])** - Returns all starships, paged. Defaults to page 1.
-* **getVehicle(id)** - Returns a vehicle.
-* **getVehicles([page])** - Returns all vehicles, paged. Defaults to page 1.
-* **getSchema(resource)** - Returns the details JSON schema for the specific resource.
+**getResources()**
+
+This method returns a list of available endpoints / resources within the API.
+
+**getPeople([page])**
+
+This method returns paginated results of all available characters.
+
+**getPerson(id)**
+
+This method returns a specific character from the API.
+
+**getFilm(id)**
+
+This method returns a specific film from the API.
+
+**getFilms([page])**
+
+This method returns all films, paged. Defaults to page 1.
 
 
-By default **ALL** methods will return 'natural' JSON strings. If you wanted to receive a ColdFusion structure you simply need to pass in a boolean value to each method like so:
+**getPlanet(id)**
 
-    var stuPlanets = objSWAPI.getPlanets(json=false);
+This method returns a specific planet from the API.
 
-This will process the API response and return deserialized JSON for you.
+
+**getPlanets([page])**
+
+This method returns all planets, paged. Defaults to page 1.
+
+
+**getSpecies(id)**
+
+This method returns a specific species from the API.
+
+
+**getAllSpecies([page])**
+
+This method returns all species, paged. Defaults to page 1.
+
+
+**getStarship(id)**
+
+This method returns a specific starship from the API.
+
+
+**getStarships([page])**
+
+This method returns all starships, paged. Defaults to page 1.
+
+
+**getVehicle(id)**
+
+This method returns a specific vehicle from the API.
+
+
+**getVehicles([page])**
+
+This method returns all vehicles, paged. Defaults to page 1.
+
+
+**getSchema(resource)**
+
+This method returns the detailed JSON schema for the specific resource.
+
+    var planetSchema = objSWAPI.getSchema('planets');
+    var vehicleSchema = objSWAPI.getSchema('vehicles');
+
+
+By default **ALL** methods will return a ColdFusion structure of data.
+If you wanted to receive the 'natural' JSON response you simply need to pass in a boolean value to each method like so:
+
+    var stuPlanets = objSWAPI.getPlanets(json=true);
+
+This will process the API response and ensure the JSON is not deserialized for you.
+
+
+
+## Want to use a pure JavaScript solution instead?
+
+Check out the [https://github.com/cfjedimaster/SWAPI-Wrapper](JavaScript wrapper) by [Ray Camden](http://raymondcamden.com)

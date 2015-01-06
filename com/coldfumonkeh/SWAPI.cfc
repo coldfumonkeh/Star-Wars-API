@@ -39,10 +39,10 @@ component accessors="true" {
 
 	/**
 	* hint - Returns all available resource endpoints for your reference
-	* @json If set to false ColdFusion will return a struct of data. If true (default) the 'natural' JSON response will be returned.
+	* @json If set to false (default) ColdFusion will return a struct of data. If true the 'natural' JSON response will be returned.
 	**/
 	public any function getResources(
-			boolean json = true
+			boolean json = false
 		)
 	{
 			return makeRequest(url=getApi_base(), json=arguments.json);
@@ -58,7 +58,7 @@ component accessors="true" {
 	**/
 	public any function getPeople(
 			numeric page = 1,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'people/?page=' & arguments.page, json=arguments.json);
@@ -70,7 +70,7 @@ component accessors="true" {
 	**/
 	public any function getPerson(
 			required numeric id,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'people/' & arguments.id, json=arguments.json);
@@ -88,7 +88,7 @@ component accessors="true" {
 	**/
 	public any function getFilms(
 			numeric page = 1,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'films/?page=' & arguments.page, json=arguments.json);
@@ -100,7 +100,7 @@ component accessors="true" {
 	**/
 	public any function getFilm(
 		required numeric id,
-		boolean json = true
+		boolean json = false
 	)
 	{
 		return makeRequest(url=getApi_base() & 'films/' & arguments.id, json=arguments.json);
@@ -117,7 +117,7 @@ component accessors="true" {
 	**/
 	public any function getStarships(
 			numeric page = 1,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'starships/?page=' & arguments.page, json=arguments.json);
@@ -129,7 +129,7 @@ component accessors="true" {
 	**/
 	public any function getStarship(
 		required numeric id,
-		boolean json = true
+		boolean json = false
 	)
 	{
 		return makeRequest(url=getApi_base() & 'starships/' & arguments.id, json=arguments.json);
@@ -146,7 +146,7 @@ component accessors="true" {
 	**/
 	public any function getVehicles(
 			numeric page = 1,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'vehicles/?page=' & arguments.page, json=arguments.json);
@@ -158,7 +158,7 @@ component accessors="true" {
 	**/
 	public any function getVehicle(
 		required numeric id,
-		boolean json = true
+		boolean json = false
 	)
 	{
 		return makeRequest(url=getApi_base() & 'vehicles/' & arguments.id, json=arguments.json);
@@ -176,7 +176,7 @@ component accessors="true" {
 	**/
 	public any function getAllSpecies(
 			numeric page = 1,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'species/?page=' & arguments.page, json=arguments.json);
@@ -188,7 +188,7 @@ component accessors="true" {
 	**/
 	public any function getSpecies(
 		required numeric id,
-		boolean json = true
+		boolean json = false
 	)
 	{
 		return makeRequest(url=getApi_base() & 'species/' & arguments.id, json=arguments.json);
@@ -206,7 +206,7 @@ component accessors="true" {
 	**/
 	public any function getPlanets(
 			numeric page = 1,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & 'planets/?page=' & arguments.page, json=arguments.json);
@@ -218,7 +218,7 @@ component accessors="true" {
 	**/
 	public any function getPlanet(
 		required numeric id,
-		boolean json = true
+		boolean json = false
 	)
 	{
 		return makeRequest(url=getApi_base() & 'planets/' & arguments.id, json=arguments.json);
@@ -231,7 +231,7 @@ component accessors="true" {
 	**/
 	public any function getSchema(
 			required string resource,
-			boolean json = true
+			boolean json = false
 		)
 	{
 		return makeRequest(url=getApi_base() & resource & '/schema', json=arguments.json);
@@ -246,7 +246,7 @@ component accessors="true" {
 	private any function makeRequest(
 			required string url,
 			string method = "GET",
-			boolean json = true
+			boolean json = false
 		)
 	{
 		var httpService = new http(url=arguments.url, method=arguments.method);

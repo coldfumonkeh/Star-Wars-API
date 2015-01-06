@@ -11,12 +11,12 @@ component extends="mxunit.framework.TestCase" {
 	}
 
   public any function getFilmsReturnsJSON() {
-    var response = variables.swapi.getFilms();
+    var response = variables.swapi.getFilms(json=true);
     assertTrue(isJSON(response));
   }
 
   public any function getFilmsReturnsStruct() {
-    var response = variables.swapi.getFilms(json=false);
+    var response = variables.swapi.getFilms();
     assertTrue(isStruct(response));
     assertTrue(structKeyExists(response, 'count'));
     assertTrue(structKeyexists(response, 'results'));
@@ -24,7 +24,7 @@ component extends="mxunit.framework.TestCase" {
   }
 
   public any function getSpecificFilmReturnsCorrectly() {
-    var response = variables.swapi.getFilm(id=1, json=false);
+    var response = variables.swapi.getFilm(id=1);
     assertTrue(isStruct(response));
     assertEquals(response.director, "George Lucas");
     assertEquals(response.episode_id, "4");
@@ -33,7 +33,7 @@ component extends="mxunit.framework.TestCase" {
 
 
   public any function getSpecificVehicleReturnsCorrectly() {
-    var response = variables.swapi.getVehicle(id=16, json=false);
+    var response = variables.swapi.getVehicle(id=16);
     assertTrue(isStruct(response));
     assertEquals(response.name, "TIE bomber");
     assertEquals(response.crew, "1");
